@@ -19,11 +19,6 @@ import java.util.List;
 @WebServlet(name = "CommentServlet", value = "/CommentServlet")
 public class CommentServlet extends HttpServlet {
 
-    /**
-     * Servlet method for viewing comment
-     * @param request
-     * @param response
-     */
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +32,7 @@ public class CommentServlet extends HttpServlet {
             User currentUser = (User) httpSession.getAttribute("user");
             int userId = currentUser.getUserId();
 
-            //from the comment DOA
+            //from the comment DAO
             CommentDatabase commentDatabaseDatabase = new CommentDatabase(DBConnection.getConnection());
             List<Comment> comments = null;
 
