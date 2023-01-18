@@ -14,6 +14,9 @@ import java.sql.*;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
+
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,30 +24,38 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+//        response.setContentType("text/html");
         HttpSession httpSession = request.getSession();
 
-        //get request data
+        PrintWriter out = response.getWriter();
+
+//        get request data
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+
 
         //from user DOA
         UserDatabase userDatabase = new UserDatabase(DBConnection.getConnection());
 
-        User user = null;
         try {
-            user = userDatabase.loginUser(email, password);
+            User  user = userDatabase.loginUser(email, password);
+
+            if(user != null){
+                httpSession.setAttribute("user", user);
+                response.sendRedirect("feed.jsp");
+            }
+            else{
+//            httpSession.setAttribute("Registration Error", "User not found, Enter Correct Password or Email");
+                request.setAttribute("loginstatus", "failed");
+//                response.sendRedirect("index.jsp");
+                out.println("User not found, Enter Correct Password or Email");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        if(user != null){
-            httpSession.setAttribute("user", user);
-            response.sendRedirect("home.jsp");
-        }else{
-            httpSession.setAttribute("Registration Error", "User not found, Enter Correct Password or Email");
-            response.sendRedirect("index.jsp");
-        }
+
 
 
 
@@ -69,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 //            if (rs.next()) {
 //               session.setAttribute("user", rs.getString("username"));
 //                session.setAttribute("fullName", rs.getString("name"));
-//                dispatcher = request.getRequestDispatcher("index.jsp");
+//                dispatcher = request.getRequestDispatcher("indexcopy.jsp");
 //            }
 //            else {
 //                request.setAttribute("status", "failed");

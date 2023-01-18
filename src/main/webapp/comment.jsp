@@ -47,7 +47,7 @@
     User user = (User) session.getAttribute("user");
     if(user == null){
         session.setAttribute("Registration Error", "!!!Please Login first");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("indexcopy.jsp");
     }
 %>
 

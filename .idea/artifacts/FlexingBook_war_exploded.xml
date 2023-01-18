@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="FlexingBook:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/FlexingBook_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="FlexingBook" />
+          <element id="library" level="application" name="sweetalert" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql.connector.java" />
+          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.31" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="FlexingBook/web/Web" />
+    </root>
+  </artifact>
+</component>

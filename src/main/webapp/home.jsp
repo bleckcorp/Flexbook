@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="dbConnectionProvider.DbConnection" %>
+<%@ page import="ConnectionProvider.DbConnection" %>
 <%@ page import="model.Post" %>
 <%@ page import="java.util.List" %>
 <%@ page import="DOA.PostDatabase" %>
@@ -43,7 +43,7 @@
 
     if(user == null){
 //        session.setAttribute("Registration Error", "!!!Please Login first");
-//        response.sendRedirect("index.jsp");
+//        response.sendRedirect("indexcopy.jsp");
     }else{
         PostDatabase postData = new PostDatabase(DbConnection.getConnection());
         List<Post> posts = postData.getPosts(user);
@@ -116,7 +116,7 @@
                                 <%=user.getFirstName() +" "+ user.getLastName() %>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.jsp">Logout</a></li>
+                                <li><a class="dropdown-item" href="indexcopy.jsp">Logout</a></li>
                                 <li><a class="dropdown-item" href="#">Setting</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#">friends</a></li>
