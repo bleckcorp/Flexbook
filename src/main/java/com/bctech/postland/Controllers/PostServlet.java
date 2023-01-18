@@ -50,10 +50,10 @@ public class PostServlet extends HttpServlet {
         try {
             if (postDatabase.createPost(userId, post)) {
                 httpSession.setAttribute("message", "Post created successfully");
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("feed.jsp");
             } else {
                 httpSession.setAttribute("message", "Post creation failed");
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("feed.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();

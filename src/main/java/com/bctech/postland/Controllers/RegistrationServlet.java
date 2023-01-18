@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet(name = "Registration", value = ("/register"))
@@ -34,6 +35,7 @@ public class RegistrationServlet extends HttpServlet {
         String gender = request.getParameter("gender");
 
 
+
         //Password encryption
         String hashedPassword = PasswordEncryption.encryptPassword(password);
 
@@ -48,6 +50,7 @@ public class RegistrationServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        request.setAttribute("status", "success");
         response.sendRedirect("index.jsp");
 
 

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class UserDatabase {
 
-    String queryToInsert = "INSERT INTO users( firstName,lastName, password, email, date_of_birth, gender) values (?,?,?,?,?)";
+    String queryToInsert = "INSERT INTO users( firstName,lastName, password, email, date_of_birth, gender) values (?,?,?,?,?,?)";
     String queryToSelectUserByEmail = "SELECT * FROM users WHERE email = ?";
     String queryToDeleteUser = "DELETE FROM users WHERE email = ?";
 
@@ -31,8 +31,8 @@ public class UserDatabase {
             preparedStatement.setString(2, user.getLastName());
             preparedStatement.setString(3, user.getPassword());
             preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(4, user.getDate_of_birth());
-            preparedStatement.setString(4, user.getGender());
+            preparedStatement.setString(5, user.getDate_of_birth());
+            preparedStatement.setString(6, user.getGender());
 
             preparedStatement.executeUpdate();
             status = true;
@@ -57,13 +57,15 @@ public class UserDatabase {
                 user = new User();
                 String decryptPass = PasswordEncryption.decryptPassword(result.getString("password"));
                 if(!decryptPass.equals(password)){
+                    System.out.println("Problem here");
                     return null;
+
                 }
                 user.setFirstName(result.getString("firstname"));
                 user.setLastName(result.getString("lastname"));
                 user.setEmail(result.getString("email"));
                 user.setPassword(result.getString("password"));
-                user.setId(result.getInt("user_id"));
+                user.setId(Integer.parseInt(result.getString("userId")));
 
             }
         return user;

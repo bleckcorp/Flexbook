@@ -1,3 +1,4 @@
+<%@ page import="com.bctech.postland.models.User" %>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,9 +21,15 @@
     />
     <!-- main style -->
     <link rel="stylesheet" href="./main.css" />
-    <title>Flexbook</title>
+    <title>FlexingBook</title>
   </head>
   <body class="bg-gray postion-relative">
+
+<%--  JSP commands--%>
+
+  <%
+    User user = (User) session.getAttribute("user");
+  %>
     <!-- ================= Appbar ================= -->
     <div
       class="bg-white d-flex align-items-center fixed-top shadow"
@@ -242,7 +249,7 @@
                 alt="avatar"
                 style="width: 38px; height: 38px; object-fit: cover"
               />
-              <p class="m-0">John</p>
+              <p class="m-0"><%=user.getFirstName()%> </p>
             </div>
             <!-- main menu -->
             <div
@@ -1515,7 +1522,7 @@
                   style="width: 45px; height: 45px; object-fit: cover"
                 />
                 <div>
-                  <p class="m-0">John</p>
+                  <p class="m-0"><%=user.getFirstName() +" "+ user.getLastName() %> </p>
                   <p class="m-0 text-muted">See your profile</p>
                 </div>
               </li>
@@ -2021,7 +2028,7 @@
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a
-                      href="./index.html"
+                      href="index.jsp"
                       class="d-flex text-decoration-none text-dark"
                     >
                       <i class="fas fa-cog bg-gray p-2 rounded-circle"></i>
@@ -2081,7 +2088,7 @@
                     />
                   </div>
                   <div>
-                    <p class="m-0">John</p>
+                    <p class="m-0"><%=user.getFirstName() +" "+ user.getLastName() %>  </p>
                   </div>
                 </a>
               </li>
@@ -2789,7 +2796,7 @@
                   type="text"
                   class="form-control rounded-pill border-0 bg-gray pointer"
                   disabled
-                  placeholder="What's on your mind, John?"
+                  placeholder="What's on your mind,<%=user.getFirstName() %> ?"
                   data-bs-toggle="modal"
                   data-bs-target="#createModal"
                 />
@@ -2839,7 +2846,7 @@
                               />
                             </div>
                             <div>
-                              <p class="m-0 fw-bold">John</p>
+                              <p class="m-0 fw-bold"><%=user.getFirstName() %> </p>
                               <select
                                 class="form-select border-0 bg-gray w-75 fs-7"
                                 aria-label="Default select example"

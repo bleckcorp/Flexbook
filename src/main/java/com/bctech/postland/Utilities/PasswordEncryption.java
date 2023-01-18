@@ -9,7 +9,7 @@ public class PasswordEncryption {
     }
 
     public static String decryptPassword(String encryptedString){
-        return new String (Base64.getMimeDecoder().decode(encryptedString));
+        return new String (Base64.getDecoder().decode(encryptedString));
     }
 }
 
