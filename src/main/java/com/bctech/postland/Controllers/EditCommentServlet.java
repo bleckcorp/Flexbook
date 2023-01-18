@@ -43,11 +43,6 @@ public class EditCommentServlet extends HttpServlet {
             //from comment DOA
             CommentDatabase commentDatabase = new CommentDatabase(DBConnection.getConnection());
 
-//            if(commentDatabase.updateComment(user.getUserId(), postId, comment)){
-//                response.getWriter().write("Success editing post");
-//            }else{
-//                response.getWriter().write("Error editing post or you don't have access to delete this comment");
-//            }
         }catch (Exception e){
             e.printStackTrace();
         }
