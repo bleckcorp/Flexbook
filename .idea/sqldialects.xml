@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/bctech/postland/Controllers/RegistrationServlet.java" dialect="GenericSQL" />
-    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/a700c2a8-2de2-4488-8f4f-e292ac9a82aa/console_1.sql" dialect="MySQL" />
-    <file url="PROJECT" dialect="MySQL" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/cab1eaf2-c7e7-4a24-ba66-d40225db41fa/console_2.sql" dialect="MySQL" />
   </component>
 </project>
