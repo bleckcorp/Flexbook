@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postLand@localhost" uuid="a700c2a8-2de2-4488-8f4f-e292ac9a82aa">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/postLand</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-      <driver-properties>
-        <property name="useSSL" value="TRUE" />
-        <property name="verifyServerCertificate" value="FALSE" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="63a803a9-03c3-473f-a511-72ff7721a101">
+    <data-source source="LOCAL" name="@localhost" uuid="cab1eaf2-c7e7-4a24-ba66-d40225db41fa">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <driver-properties>
-        <property name="useSSL" value="NO" />
+        <property name="useSSL" value="FALSE" />
       </driver-properties>
     </data-source>
   </component>
