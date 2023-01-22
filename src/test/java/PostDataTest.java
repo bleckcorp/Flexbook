@@ -98,7 +98,7 @@ public class PostDataTest {
     @Test
     public void testDeletePost() throws SQLException {
         postDatabase = new PostDatabase(getConnection());
-        assertTrue(PostDatabase.deletePost(11, 1));
+        assertTrue(postDatabase.deletePost(11, 1));
 
     }
 }

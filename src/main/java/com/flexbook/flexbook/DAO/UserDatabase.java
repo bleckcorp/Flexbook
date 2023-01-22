@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDatabase {
+
+    String queryTocreateUser = "INSERT INTO user(firstname, lastname,password, email, dob, gender) VALUES(?,?,?,?,?,?)" ;
+    String queryToGetUser = "select * from user where email=?";
     private Connection con;
 
     public UserDatabase(Connection con) {
@@ -23,10 +26,8 @@ public class UserDatabase {
      */
     public boolean registerUser(User user){
         boolean success = false;
-        String query = "INSERT INTO user(firstname, lastname,password, email, dob, gender) VALUES(?,?,?,?,?,?)";
-
         try {
-            PreparedStatement preparedStatement = this.con.prepareStatement(query);
+            PreparedStatement preparedStatement = this.con.prepareStatement(queryTocreateUser);
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getLastname());
             preparedStatement.setString(3, user.getPassword());
@@ -49,9 +50,7 @@ public class UserDatabase {
     public User login(String data, String password){
         User user = null;
         try {
-           String query = "select * from user where email=?";
-           Connection connection = ConnectionManager.getConnection();
-            PreparedStatement preparedStatement = this.con.prepareStatement(query);
+            PreparedStatement preparedStatement = this.con.prepareStatement(queryToGetUser);
             preparedStatement.setString(1, data);
             ResultSet result = preparedStatement.executeQuery();
             if(result.next()){

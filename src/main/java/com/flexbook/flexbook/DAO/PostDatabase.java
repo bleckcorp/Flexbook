@@ -13,6 +13,10 @@ import java.util.List;
 
 public class PostDatabase {
     private   Connection dbConnection;
+    String queryToCreatePost = "insert into posts(title,body,image_name,user_id) " +
+            "values (?,?,?,?)";
+    String queryToGetPosts = "select p.id, p.title, p.body, p.image_name, u.firstname, u.email from posts p"
+            +"  join user u on p.user_id=u.id order by p.id DESC";
 
     public   PostDatabase(Connection connection) {
         this.dbConnection = connection;
@@ -21,10 +25,7 @@ public class PostDatabase {
     public boolean createPost(int userId, Post post){
         boolean result = false;
         try{
-            String query = "insert into posts(title,body,image_name,user_id) " +
-                    "values (?,?,?,?)";
-
-            PreparedStatement preparedStatement = this.dbConnection.prepareStatement(query);
+            PreparedStatement preparedStatement = this.dbConnection.prepareStatement(queryToCreatePost);
             preparedStatement.setString(1, post.getTitle());
             preparedStatement.setString(2, post.getBody());
             preparedStatement.setString(3, post.getImageName());
@@ -39,20 +40,11 @@ public class PostDatabase {
         return result;
     }
 
-    /**
-     * Method returns lists of all posts
-     * @return list
-     * */
     public  List<Post> getPosts(User currentUser){
-        Connection con = ConnectionManager.getConnection();
         List<Post> posts = new ArrayList<>();
         try{
-            String query = "select p.id, p.title, p.body, p.image_name, u.lastname, u.email from posts p"
-                    +"  join user u on p.user_id=u.id order by p.id DESC";
-
-            PreparedStatement preparedStatement = con.prepareStatement(query);
+            PreparedStatement preparedStatement = this.dbConnection.prepareStatement(queryToGetPosts);
             ResultSet result = preparedStatement.executeQuery();
-            //System.out.println(result);
             Post post = null;
             while(result.next()){
                 post = new Post();
@@ -60,7 +52,7 @@ public class PostDatabase {
                 post.setTitle(result.getString("title"));
                 post.setBody(result.getString("body"));
                 post.setImageName(result.getString("image_name"));
-                post.setName(result.getString("lastname"));
+                post.setName(result.getString("firstname"));
                 post.setEmail(result.getString("email"));
 
 
@@ -96,10 +88,7 @@ public class PostDatabase {
         return posts;
     }
 
-    /**
-     * Method returns a post by id
-     * @return list
-     * */
+
     public Post getPostById(int postId){
         Post post = null;
 
@@ -127,17 +116,10 @@ public class PostDatabase {
         return post;
     }
 
-    /**
-     * This method update a post
-     * @param postId
-     * @param newPost
-     * @return
-     */
     public boolean editPost(int postId, Post newPost){
         boolean success = false;
 
         try {
-            //String query = "update posts set title=newPost.getTitle(), body=newPost.getBody() where id=posjjtId";
             String query = "update posts set title=?, body=? where id=?";
             PreparedStatement prepared = this.dbConnection.prepareStatement(query);
 
@@ -156,19 +138,11 @@ public class PostDatabase {
         return success;
     }
 
-    /**
-     * This method delete a post made by the user identified by the post_id
-     * @param postId
-     * @param userid
-     * @return
-     */
-    public static boolean deletePost(int userid, int postId){
-        Connection con = ConnectionManager.getConnection();
+    public boolean deletePost(int userid, int postId){
         boolean success =  false;
         try {
-//            String query = "delete from posts where id="+postId ;
             String query = "DELETE FROM posts WHERE id=? AND user_id=?";
-            PreparedStatement prepared = con.prepareStatement(query);
+            PreparedStatement prepared = this.dbConnection.prepareStatement(query);
             prepared.setInt(1,postId);
             prepared.setInt(2,userid);
             int result = prepared.executeUpdate();
@@ -184,14 +158,6 @@ public class PostDatabase {
         return success;
     }
 
-
-    /**
-     * This methods allows users to make comment
-     * @param userId
-     * @param postId
-     * @param comment
-     * @return
-     */
     public boolean makeComment(int userId, int postId, String comment){
         boolean result = false;
         try{

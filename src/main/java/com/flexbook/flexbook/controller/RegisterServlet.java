@@ -1,6 +1,5 @@
 package com.flexbook.flexbook.controller;
 
-import com.flexbook.flexbook.DAO.PostDatabase;
 import com.flexbook.flexbook.DAO.UserDatabase;
 import com.flexbook.flexbook.model.User;
 import com.flexbook.flexbook.utilities.ConnectionManager;
