@@ -2796,7 +2796,7 @@
                 <div class="p-2 mt-5">
                     <p class="text-muted fs-7">
                         Privacy &#8226; Terms &#8226; Advertising &#8226; Ad Choices
-                        &#8226; Cookies &#8226; Flexbook © 2022
+                        &#8226; Cookies &#8226; Flexbook © 2023
                     </p>
                 </div>
             </div>

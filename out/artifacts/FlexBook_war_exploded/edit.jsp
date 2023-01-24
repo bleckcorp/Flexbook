@@ -29,6 +29,13 @@
   <!-- main style -->
   <link rel="stylesheet" href="./main.css" />
   <title>Flexbook</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Nunito Sans";
+        }
+    </style>
 </head>
 <body class="bg-gray postion-relative">
 
