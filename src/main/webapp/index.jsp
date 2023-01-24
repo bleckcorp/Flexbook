@@ -36,7 +36,14 @@
 
 
     <link rel="stylesheet" href="css/facebook.css">
+
     <title>Flexbook - Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Nunito Sans";
+        }
+    </style>
 
 </head>
 <body>
@@ -116,7 +123,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="form-check-label" for="male">Gender</label>
+                                <label class="form-check-label" for="male">'   Gender  '</label>
                                 <div class="col-md-3">
                                     <input class="form-check-input" type="radio" value="male" name="gender" id="male">
                                     <label class="form-check-label" for="male">

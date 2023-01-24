@@ -1,6 +1,17 @@
 .signup {
     margin-bottom: 150px;
 }
+
+.majorpix{
+    margin-top: 150px;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.comment_like_share{
+    display: inline-flex;
+}
 .signup-content {
     @extend display-flex;
     padding: 75px 0;

@@ -7,9 +7,9 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- fontawesome -->
     <link
             rel="stylesheet"
@@ -26,8 +26,14 @@
             crossorigin="anonymous"
     />
     <!-- main style -->
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./main.css"/>
     <title>Flexbook</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Nunito Sans";
+        }
+    </style>
 </head>
 <body class="bg-gray postion-relative">
 
@@ -37,17 +43,19 @@
     PostDatabase postData = new PostDatabase(ConnectionManager.getConnection());
     List<Post> posts = postData.getPosts(user);
 
-    if(session.getAttribute("message") != null){%>
+    if (session.getAttribute("message") != null) {%>
 <div class="alert alert-primary" role="alert">
     <%=session.getAttribute("message").toString()%>
 </div>
-<%}
+<%
+    }
 
 
-    if(user == null){
+    if (user == null) {
         session.setAttribute("Registration Error", "!!!Please Login first");
         response.sendRedirect("index.jsp");
-    }else{%>
+    } else {
+%>
 <!-- ================= Appbar ================= -->
 <div
         class="bg-white d-flex align-items-center fixed-top shadow"
@@ -267,7 +275,8 @@
                             alt="avatar"
                             style="width: 38px; height: 38px; object-fit: cover"
                     />
-                    <p class="m-0"><%=user.getFirstname()%></p>
+                    <p class="m-0"><%=user.getFirstname()%>
+                    </p>
                 </div>
                 <!-- main menu -->
                 <div
@@ -485,7 +494,7 @@
                                 </div>
                             </a>
                         </li>
-                        <hr />
+                        <hr/>
                         <!-- ent items -->
                         <h4 class="m-2">Entertainment</h4>
                         <!-- e1 -->
@@ -573,7 +582,7 @@
                             </a>
                         </li>
                     </div>
-                    <hr />
+                    <hr/>
                     <!-- create -->
                     <div>
                         <!-- header -->
@@ -667,7 +676,7 @@
                                 </div>
                             </a>
                         </li>
-                        <hr />
+                        <hr/>
                         <!-- c-4 -->
                         <li class="my-2 p-1">
                             <a
@@ -890,7 +899,7 @@
                                         >Customize your Messenger experience.</span
                                         >
                                     </div>
-                                    <hr />
+                                    <hr/>
                                     <!-- incoming sound -->
                                     <li>
                                         <div
@@ -984,7 +993,7 @@
                                         >Automatically open new messages.</span
                                         >
                                     </li>
-                                    <hr class="m-0" />
+                                    <hr class="m-0"/>
                                     <!-- item 1 -->
                                     <li>
                                         <div
@@ -1264,7 +1273,7 @@
                             </div>
                         </div>
                     </li>
-                    <hr class="m-0" />
+                    <hr class="m-0"/>
                     <a href="#" class="text-decoration-none">
                         <p class="fw-bold text-center pt-3 m-0">See All in Messenger</p>
                     </a>
@@ -1540,11 +1549,12 @@
                                 style="width: 45px; height: 45px; object-fit: cover"
                         />
                         <div>
-                            <p class="m-0"><%=user.getFirstname()%></p>
+                            <p class="m-0"><%=user.getFirstname()%>
+                            </p>
                             <p class="m-0 text-muted">See your profile</p>
                         </div>
                     </li>
-                    <hr />
+                    <hr/>
                     <!-- feedback -->
                     <li
                             class="dropdown-item p-1 rounded d-flex align-items-center"
@@ -1560,7 +1570,7 @@
                             </p>
                         </div>
                     </li>
-                    <hr />
+                    <hr/>
                     <!-- options -->
                     <!-- 1 -->
                     <li class="dropdown-item p-1 my-3 rounded" type="button">
@@ -2046,7 +2056,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a
-                                        href="./index.html"
+                                        href="./index.jsp"
                                         class="d-flex text-decoration-none text-dark"
                                 >
                                     <i class="fas fa-cog bg-gray p-2 rounded-circle"></i>
@@ -2106,7 +2116,8 @@
                                 />
                             </div>
                             <div>
-                                <p class="m-0"><%=user.getFirstname()%></p>
+                                <p class="m-0"><%=user.getFirstname()%>
+                                </p>
                             </div>
                         </a>
                     </li>
@@ -2358,7 +2369,7 @@
                             </div>
                         </div>
                     </li>
-                    <hr class="m-0" />
+                    <hr class="m-0"/>
                     <!-- shortcuts -->
                     <!-- heading -->
                     <div
@@ -2785,7 +2796,7 @@
                 <div class="p-2 mt-5">
                     <p class="text-muted fs-7">
                         Privacy &#8226; Terms &#8226; Advertising &#8226; Ad Choices
-                        &#8226; Cookies &#8226; Flexbook © 2021
+                        &#8226; Cookies &#8226; Flexbook © 2022
                     </p>
                 </div>
             </div>
@@ -2864,13 +2875,15 @@
                                                     />
                                                 </div>
                                                 <div>
-                                                    <p class="m-0 fw-bold"><%=user.getFirstname()%></p>
+                                                    <p class="m-0 fw-bold"><%=user.getFirstname()%>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <!-- text -->
                                             <div>
                                                 <div class="postArea">
-                                                    <form action="PostServlet" method="POST" enctype="multipart/form-data">
+                                                    <form action="PostServlet" method="POST"
+                                                          enctype="multipart/form-data">
                                                         <div class="mb-3">
                                                             <label for="post-title" class="form-label">Title</label>
                                                             <input
@@ -2898,7 +2911,8 @@
                                                         <div class="row post-buttons mb-4">
                                                             <div class="col-md-6 col-btn">
                                                                 <label class="form-label" for="customFile">Photo</label>
-                                                                <input type="file" name="file" class="form-control" id="customFile" required/>
+                                                                <input type="file" name="file" class="form-control"
+                                                                       id="customFile" required/>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-primary w-100">
@@ -2940,7 +2954,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr />
+                    <hr/>
                     <!-- actions -->
                     <div class="d-flex flex-column flex-lg-row mt-3">
                         <!-- a 1 -->
@@ -2992,30 +3006,32 @@
                 <div class="bg-white p-4 rounded shadow mt-3">
                     <div class="scroller like-icon">
                         <%
-                            for (Post post:posts) {%>
+                            for (Post post : posts) {%>
 
                         <div class="linear">
                             <div class="titleText">
 
                                 <p><span style="font-weight: bold; color:#81adef; font-size: 1.4em; margin-right: 5px">Author:</span>
-                                    <%=post.getName()%></p>
-                                <h2><%=post.getTitle()%></h2>
+                                    <%=post.getName()%>
+                                </p>
+                                <h2><%=post.getTitle()%>
+                                </h2>
                             </div>
-                            <img src="./image/<%=post.getImageName()%>" class="majorpix" alt="" />
+                            <img src="./image/<%=post.getImageName()%>"  class="majorpix" alt="Post Image"/>
                         </div>
                         <div class="body">
-                            <p><%=post.getBody()%></p>
+                            <p><%=post.getBody()%>
+                            </p>
                         </div>
                         <hr>
                         <div class="comment_like_share mb-2">
                             <div class="like">
-                                <i  onclick="like(<%=post.getId()%>, <%=user.getId()%>)" id="<%=post.getId()%>"
-                                    class="fa fa-thumbs-o-up" aria-hidden="true">
+                                <i onclick="like(<%=post.getId()%>, <%=user.getId()%>)" id="<%=post.getId()%>"
+                                   class="fa fa-thumbs-o-up" aria-hidden="true">
                                     <span class="likes"><%=post.getNoLikes()%></span>
-                                    <span style="display:none;" class="thumb"><%=post.getId()%></span></i>
-                                <p style="display: none" class="userLiked"><%=post.isLikedPost()%></p>
-
-                                </i>
+                                    <span style="display:none;" class="thumb"><%=post.getId()%></span> </i>
+                                <p style="display: none" class="userLiked"><%=post.isLikedPost()%>
+                                </
                                 <!-- <span>Like</span> -->
                             </div>
                             <div class="comment">
@@ -3030,24 +3046,27 @@
                                 <!-- <span>Edit</span> -->
                             </div>
                             <div class="delete">
-                                <i class="fa fa-remove" aria-hidden="true" id="delete" onclick="del(<%=post.getId()%>)"></i>
+                                <i class="fa fa-remove" aria-hidden="true" id="delete"
+                                   onclick="del(<%=post.getId()%>)"></i>
                                 <!-- <span>Delete</span> -->
                             </div>
                         </div>
+
                         <div class="row mb-2">
                             <form action="CommentServlet" method="POST">
                                 <input style="display:none" name="postId" value="<%=post.getId()%>"/>
                                 <textarea
                                         name="comment"
                                         class="form-control drag"
-                                        placeholder="What's your comment on this <%=user.getLastname()%> ?"
+                                        placeholder="What's your comment on this <%=user.getFirstname()%> ?"
                                 ></textarea>
                                 <button type="submit" class="btn btn-primary btn-md mt-3 btn-block">
                                     Comment
                                 </button>
                             </form>
                         </div>
-                        <%}
+                        <%
+                            }
                         %>
                     </div>
 
@@ -3281,7 +3300,7 @@
                         </div>
                     </li>
                     <!-- contacts -->
-                    <hr class="m-0" />
+                    <hr class="m-0"/>
                     <div
                             class="my-3 d-flex justify-content-between align-items-center"
                     >
@@ -3362,7 +3381,7 @@
                                     >Customize your Messenger experience.</span
                                     >
                                 </div>
-                                <hr />
+                                <hr/>
                                 <!-- incoming sound -->
                                 <li>
                                     <div
@@ -3456,7 +3475,7 @@
                                     >Automatically open new messages.</span
                                     >
                                 </li>
-                                <hr class="m-0" />
+                                <hr class="m-0"/>
                                 <!-- item 1 -->
                                 <li>
                                     <div
@@ -4492,50 +4511,49 @@
 
         for (let i = 0; i < valid.length; i++) {
 
-            if(valid[i].innerHTML === "true") {
+            if (valid[i].innerHTML === "true") {
                 thumb[i].style.color = "#1977f2";
             }
         }
     }
 
     //edit post
-    function edit(postId){
-        window.location.href = "edit.jsp?post="+postId;
+    function edit(postId) {
+        window.location.href = "edit.jsp?post=" + postId;
 
     }
 
     //comment on post
-    function com(postId){
-        window.location.href = "comment.jsp?post="+postId;
+    function com(postId) {
+        window.location.href = "comment.jsp?post=" + postId;
     }
 
     //like on post
-    function like(postId, userId){
+    function like(postId, userId) {
         //fa fa-thumbs-o-up
         const URL = "LikeServlet";
         let like = document.getElementById(postId).style.color;
-        //  console.log(like);
 
-        if(like == "rgb(25, 119, 242)"){
 
-            // console.log("decrement");
+        if (like == "rgb(25, 119, 242)") {
+
             const valid = document.getElementsByClassName("thumb");
             document.getElementById(postId).style.color = "#000";
 
             for (let i = 0; i < valid.length; i++) {
                 let newId = valid[i].innerHTML.split(" ")[0]; //the spliting later was not necessary
 
-                if(newId == postId){
+                if (newId == postId) {
                     let like = Number(document.getElementsByClassName("likes")[i].innerHTML);
                     like--;
-                    document.getElementsByClassName("likes")[i].innerHTML = like+"";
-                    console.log( document.getElementsByClassName("likes")[i]);
+                    document.getElementsByClassName("likes")[i].innerHTML = like + "";
+                    console.log(document.getElementsByClassName("likes")[i]);
 
                     const data = {postId, userId, "action": 0}
                     ajaxCall(URL, data);
                 }
             }
-        }else{
+        } else {
             console.log("increment");
 
             const valid = document.getElementsByClassName("thumb");
@@ -4544,10 +4562,10 @@
             for (let i = 0; i < valid.length; i++) {
                 let newId = valid[i].innerHTML.split(" ")[0];
 
-                if(newId == postId){
+                if (newId == postId) {
                     let like = Number(document.getElementsByClassName("likes")[i].innerHTML);
                     like++;
-                    document.getElementsByClassName("likes")[i].innerHTML = like+"";
+                    document.getElementsByClassName("likes")[i].innerHTML = like + "";
 
                     const data = {
                         postId,
@@ -4560,39 +4578,39 @@
         }
     }
 
-    function ajaxCall(url, dataCall){
+    function ajaxCall(url, dataCall) {
         $.ajax({
             type: 'POST',
             url: url,
             data: dataCall,
 
-            success: function(data){
+            success: function (data) {
 
             },
-            error: function(){
+            error: function () {
                 alert('error liking');
             }
         });
     }
 
     // delete post
-    function del(postId){
+    function del(postId) {
         console.log("working");
 
         const delPost = confirm("Are you sure you want to delete post");
 
-        if(delPost){
+        if (delPost) {
             $.ajax({
                 type: 'POST',
                 url: 'DeleteServlet',
                 data: {"postId": postId},
 
-                success: function(data){
+                success: function (data) {
                     console.log(data);
                     alert(data);
                     window.location.reload();
                 },
-                error: function(){
+                error: function () {
                     alert('error deleting post');
                 }
             });
@@ -4600,7 +4618,8 @@
     }
 
 </script>
-<%}
+<%
+    }
 %>
 </body>
 
