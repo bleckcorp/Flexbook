@@ -21,7 +21,7 @@ public class PostDatabase {
     public   PostDatabase(Connection connection) {
         this.dbConnection = connection;
     }
-
+//TODO check for validation session id vs user id
     public boolean createPost(int userId, Post post){
         boolean result = false;
         try{

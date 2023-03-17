@@ -2061,7 +2061,7 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a
-                        href="./index.html"
+                        href="./index.jsp"
                         class="d-flex text-decoration-none text-dark"
                 >
                   <i class="fas fa-cog bg-gray p-2 rounded-circle"></i>
