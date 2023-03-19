@@ -34,6 +34,7 @@ public class PostServlet extends HttpServlet {
             String imageName = part.getSubmittedFileName();
             String title = request.getParameter("title");
             String body = request.getParameter("body");
+
             User currentUser = (User) httpSession.getAttribute("user");
             int userId = currentUser.getId();
 
